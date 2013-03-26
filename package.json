@@ -1,0 +1,21 @@
+{
+  "name": "node-forum",
+  "version": "0.0.1",
+  "description": "Fast scalable forum app",
+  "main": "app.js",
+  "author": "David Higginbotham <david@hillsoft.com> & Daniel Levy <dan@hillsoft.com>",
+  "private": true,
+  "license": "GPL",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "hapi": ">= 0.15.x",
+    "mongoose": "3.6.0",
+    "socket.io": ">= 0.9.0",
+    "colors": "0.6.x"
+ },
+  "devDependencies": {
+    "underscore": "*"
+  }
+}
