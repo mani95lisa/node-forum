@@ -1,0 +1,8 @@
+<!-- //header-scripts.html -->
+{{#if style.head}}{{#each style.head}}
+  <!-- ^- {{name}} -->
+    <link href="{{{path}}}" rel="stylesheet">
+{{/each}}{{/if}}{{#if embed.head}}{{#each embed.head}}
+  <!-- ^- {{name}} -->
+    <script src="{{{path}}}" type="text/javascript"></script>
+{{/each}}{{/if}}
