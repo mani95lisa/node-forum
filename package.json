@@ -12,6 +12,7 @@
   "dependencies": {
     "hapi": ">= 0.15.x",
     "mongoose": "3.6.0",
+    "mongodb": "*",
     "socket.io": ">= 0.9.0",
     "hoek": "0.7.x",
     "boom": "0.3.x",
@@ -22,6 +23,7 @@
     "cryptiles": "0.1.x",
     "lout": "*",
     "yar": "*",
+    "crypto": "*",
     "colors": "0.6.x"
  },
   "engines": {
