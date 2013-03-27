@@ -41,8 +41,8 @@ exports.LoginPage = function (request) {
 
       FormsClass.makeForm(FormsConf.signup, function(formOutput) {
 
-        
-        
+
+
         request.reply.view('pages/login', {
           title: 'Login / Signup Page '
         , form: formOutput
@@ -57,10 +57,11 @@ exports.LoginPage = function (request) {
           FormsClass.formatForm(FormsConf.signup, data, function(form) {
             FormsClass.insertForm(model.users, form, function(resp) {
               account.createAccount(resp, function(data) {
-                console.log(data);
+                request.reply.redirect('/').send();
               });
             });
           });
+          console.log(data);
         });
       });
 
