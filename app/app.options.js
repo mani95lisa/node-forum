@@ -4,9 +4,11 @@ var Hapi = require('hapi');
 var fs = require('fs')
   , path = require('path');
 
+var _g = require('../conf/global.conf').Globals.env; //global strings
+
 module.exports = {
-  // host: 'http://rwi-chat.jit.su/',
-  // port: 8080,
+  host: _g.host,
+  port: _g.port,
   views: {
     path: path.join(__dirname, '../', 'views'),
     engine: {
@@ -20,6 +22,6 @@ module.exports = {
   },
   cache: {
     engine: 'mongodb',
-    partition: 'rwi_chat'
+    partition: _g.cache
   }
 };

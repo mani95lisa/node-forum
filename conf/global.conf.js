@@ -11,4 +11,5 @@ Globals.env = {
 
 Globals.priv = {
     iron_key: 'superspecialkey'
+  , yar_key: 'superspecialyarkey'
 }
