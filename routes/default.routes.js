@@ -40,6 +40,9 @@ exports.LoginPage = function (request) {
     ScriptManager.ManageScriptLoader(request, 'js', function(js) {
 
       FormsClass.makeForm(FormsConf.signup, function(formOutput) {
+
+        
+        
         request.reply.view('pages/login', {
           title: 'Login / Signup Page '
         , form: formOutput
