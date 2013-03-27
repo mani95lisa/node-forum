@@ -8,6 +8,7 @@ mongoose.connect('mongodb://' + _g.env.host + '/' + _g.env.db , function (err) {
   // if we failed to connect, abort
   if (err) throw err;
 
+  console.log('connected');
 });
 
 var Schema = mongoose.Schema
@@ -47,13 +48,13 @@ var TopicSchema = new Schema({
   , t_updated: Date //datetime
   , t_count: Number //int
   , t_parent: Number //int
-  , t_message: {} //text
+  , t_message: String //text
 });
 
 var MessageSchema = new Schema({
-    m_id: {} //++i
-  , u_id: {} //user id from
-  , m_to: {} //user id to
+    m_id: { type: ObjectId, index: true } //++i
+  , u_id: String //user id from
+  , m_to: String //user id to
   , m_title: String //string 200
   , m_created: Date //datetime
   , m_msg: String //string 500

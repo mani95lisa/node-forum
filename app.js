@@ -2,6 +2,8 @@
 var Hapi = require('hapi')
   , Lout = require('lout');
 
+var db = require('./conf/forum.conf');
+
 //dependencies
 var colors = require('colors');
 
