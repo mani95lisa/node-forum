@@ -3,14 +3,11 @@ var Navigation = exports.Navigation = {};
 
 Navigation.auth = [
   {std: null, id:'welcome', icon: 'home', cur: null, href:'/dashboard', token: null}
-, {std:'Find Houses', id:'home', icon: null, cur: null, href:'/p/view', token: null}
-, {std:'Account', id:'home', icon: null, cur: null, href:'/account', token: null}
 , {std:'Logout', id:'home', icon: null, cur: null, href:'/logout', token: null}
 ];
 
 Navigation.noauth = [
   {std:'Login', id:'home', icon: null, cur: null, href:'/auth', token: null}
-, {std:'Find Houses', id:'home', icon: null, cur: null, href:'/p/view', token: null}
 , {std:'Help', id:'home', icon: null, cur: null, href:'/help', token: null}
 ];
 
