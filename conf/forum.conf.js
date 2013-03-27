@@ -34,6 +34,7 @@ var ForumSchema = new Schema({
   , f_slug: {} //string 50
   , f_desc: {} //string 255
   , f_updated: {} //datetime
+  , f_created: {} //datetime
 });
 
 var TopicSchema = new Schema({
@@ -55,6 +56,7 @@ var MessageSchema = new Schema({
   , m_to: {} //user id to
   , m_title: {} //user id to
   , m_created: {} //user id to
+  , m_msg: {} //string 500
 });
 
 var User = mongoose.model('User', UserSchema);
