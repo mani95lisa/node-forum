@@ -4,11 +4,13 @@ var mongoose = require('mongoose');
 
 var _g = require('./global.conf').Globals; //global strings
 
-mongoose.connect('mongodb://' + _g.env.host + /*':' + _g.env.port + */'/' + _g.env.db , function (err) {
+mongoose.connect('mongodb://' + _g.env.host + '/' + _g.env.db , function (err) {
   // if we failed to connect, abort
   if (err) throw err;
 
 });
+
+
 
 var Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId;

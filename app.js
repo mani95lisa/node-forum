@@ -14,5 +14,4 @@ wip route config:
 
 {method: 'get', path: '/{user}/profile', handler: }
 
-
 */
