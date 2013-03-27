@@ -32,7 +32,6 @@ exports.HomePage = function (request) {
 exports.LoginPage = function (request) {
 
   ScriptManager.ManageScriptLoader(request, 'css', function(css) {
-
     ScriptManager.ManageScriptLoader(request, 'js', function(js) {
 
       FormsClass.makeForm(FormsConf.signup, function(formOutput) {
@@ -61,7 +60,6 @@ exports.LoginPage = function (request) {
 exports.ChatPage = function (request) {
 
   ScriptManager.ManageScriptLoader(request, 'css', function(css) {
-
     ScriptManager.ManageScriptLoader(request, 'js', function(js) {
 
       request.reply.view('pages/index', {
