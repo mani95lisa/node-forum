@@ -1,5 +1,4 @@
-//forum.conf.js
-var Hapi = require('hapi');
+//forum.conf.js - deprecated // going to mongojs
 var mongoose = require('mongoose');
 
 var _g = require('./global.conf').Globals; //global strings
