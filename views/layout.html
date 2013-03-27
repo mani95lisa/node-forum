@@ -7,7 +7,21 @@
     {{>header-scripts}}
   </head>
   <body>
-    {{{ content }}}    
-  </body>
+    <div id="wrap">
+
+      <div class="container" style="padding-top: 40px;">
+        {{{ content }}}    
+      </div>
+
+      <div id="push"></div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Attributions: <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a> and <a href="http://www.hapijs.com">Hapi.js</a>.</p>
+      </div>
+    </div>
   {{>footer-scripts}}
+  </body>
 </html>
