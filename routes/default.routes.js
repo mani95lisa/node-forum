@@ -5,8 +5,13 @@ var Hapi = require('hapi')
 //include socket.io
 var io = require('../app/app.server').io;
 
+//refactored
 var FormsClass = require('../lib/forms.lib').FormsClass;
 var FormsConf = require('../conf/forms.conf').forms;
+var model = require('../conf/models.conf');
+
+//models
+var account = require('../lib/account.lib');
 
 var ScriptManager = require('../lib/scripts.lib');
 
@@ -47,7 +52,11 @@ exports.LoginPage = function (request) {
 
         socket.on('register', function (data) {
           FormsClass.formatForm(FormsConf.signup, data, function(form) {
-            console.log(form);
+            FormsClass.insertForm(model.users, form, function(resp) {
+              account.createAccount(resp, function(data) {
+                console.log(data);
+              });
+            });
           });
         });
       });
