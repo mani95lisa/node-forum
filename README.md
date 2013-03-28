@@ -5,9 +5,10 @@ Node.js needed a fun forum app with some new flashy technology. So here's my go 
 Well, there's a lot of them -- I am working on currently migrating a lot of my Express.js libraries to Hapi.js (hapi'er this way). With that I have a whole pile of work ahead of me.  
 
 - Implement OAuth, most likely will use Travelogue
-- Mongoose general CRUD
+- Switch out to mongojs wrapper... probably?
+- Analytics w/ MySql
 - Slug generation
-- Views: Create, Edit, View
+- Views: Create, Edit, View, Profile, Message, Photos/Media
 - Add 'middleware' to link the forums with topics
 
 ###License

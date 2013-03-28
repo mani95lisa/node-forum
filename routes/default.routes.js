@@ -6,7 +6,7 @@ var Hapi = require('hapi')
 var io = require('../app/app.server').io;
 
 //refactored
-var FormsClass = require('../lib/forms.lib').FormsClass;
+var FormsClass = require('../lib/forms.lib');
 var FormsConf = require('../conf/forms.conf').forms;
 var model = require('../conf/models.conf');
 
@@ -39,7 +39,7 @@ exports.LoginPage = function (request) {
   ScriptManager.ManageScriptLoader(request, 'css', function(css) {
     ScriptManager.ManageScriptLoader(request, 'js', function(js) {
 
-      FormsClass.makeForm(FormsConf.signup, function(formOutput) {
+      FormsClass.render(FormsConf.signup, function(formOutput) {
 
 
 
@@ -54,13 +54,13 @@ exports.LoginPage = function (request) {
       io.sockets.on('connection', function (socket) {
 
         socket.on('register', function (data) {
-          FormsClass.formatForm(FormsConf.signup, data, function(form) {
-            FormsClass.insertForm(model.users, form, function(resp) {
-              account.createAccount(resp, function(data) {
-                request.reply.redirect('/').send();
-              });
-            });
-          });
+          // FormsClass.formatForm(FormsConf.signup, data, function(form) {
+          //   FormsClass.insertForm(model.users, form, function(resp) {
+          //     account.createAccount(resp, function(data) {
+          //       request.reply.redirect('/').send();
+          //     });
+          //   });
+          // });
           console.log(data);
         });
       });

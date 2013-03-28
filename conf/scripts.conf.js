@@ -5,7 +5,7 @@
 @email: david@hillsoft.com
 */
  
-var scriptLoader = exports.scriptLoader = {};
+var scriptLoader = module.exports = {};
  
 scriptLoader.files = [
  
