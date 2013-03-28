@@ -49,17 +49,25 @@ exports.LoginPage = function (request) {
         }).send();
       });
 
+
+    });
+
       io.sockets.on('connection', function (socket) {
 
         socket.on('register', function (data) {
-          FormsClass.join(FormsConf.signup, data, function (form) {
 
-            FormsClass.insert(model.users, form, function(insert) {
+          var cloned_form = Hoek.clone(FormsConf.signup);
 
-              console.log();
+          FormsClass.joiner(cloned_form, data, function (form) {
 
-              account.createAccount(insert, function(err, data) {
-                console.log(err, data);
+            var cloned_model = Hoek.clone(model.users);
+
+            FormsClass.insert(cloned_model, form, function(insert) {
+
+              account.createAccount(insert, function(data) {
+                
+                // console.log(data);
+
               });
               
             });
@@ -67,8 +75,6 @@ exports.LoginPage = function (request) {
           //end of register event
         });
       });
-
-    });
   });
 
 }
