@@ -54,27 +54,16 @@ exports.LoginPage = function (request) {
         socket.on('register', function (data) {
           FormsClass.join(FormsConf.signup, data, function (form) {
 
-            var that = form;
+            FormsClass.insert(model.users, form, function(insert) {
 
-            FormsClass.insert(model.users, that, function(insert) {
+              console.log();
 
-              var user = insert;
-              account.createAccount(user, function(data) {
-                console.log('this is the data: %s', data);
+              account.createAccount(insert, function(err, data) {
+                console.log(err, data);
               });
-
+              
             });
-
           });
-          // FormsClass.formatForm(FormsConf.signup, data, function(form) {
-          //   FormsClass.insertForm(model.users, form, function(resp) {
-          //     account.createAccount(resp, function(data) {
-          //
-          //     });
-          //   });
-          // });
-          // console.log(data); 
-
           //end of register event
         });
       });
