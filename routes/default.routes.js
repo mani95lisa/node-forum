@@ -64,9 +64,9 @@ exports.LoginPage = function (request) {
 
             FormsClass.insert(cloned_model, form, function(insert) {
 
-              account.createAccount(insert, function(data) {
+              account.createAccount(Hoek.clone(insert), function(cola) {
                 
-                // console.log(data);
+                // console.log(cola);
 
               });
               
