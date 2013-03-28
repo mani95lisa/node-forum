@@ -1,11 +1,11 @@
 //default.routes.js
-var Hapi = require('hapi')
-  , Hoek = require('hoek');
+var Hapi = require('hapi');
+var Hoek = require('hoek');
 
 //include socket.io
 var io = require('../app/app.server').io;
 
-//refactored
+//to be refactored
 var FormsClass = require('../lib/forms.lib');
 var FormsConf = require('../conf/forms.conf').forms;
 var model = require('../conf/models.conf');
@@ -15,9 +15,9 @@ var account = require('../lib/account.lib');
 
 var ScriptManager = require('../lib/scripts.lib');
 
-exports.Forwarder = function (request, url) {
-    return request.reply.redirect(url).send();
-}
+// exports.Forwarder = function (request, url) {
+//     request.reply.redirect(url).send();
+// }
 
 exports.HomePage = function (request) {
 
@@ -41,8 +41,6 @@ exports.LoginPage = function (request) {
 
       FormsClass.render(FormsConf.signup, function(formOutput) {
 
-
-
         request.reply.view('pages/login', {
           title: 'Login / Signup Page '
         , form: formOutput
@@ -54,14 +52,30 @@ exports.LoginPage = function (request) {
       io.sockets.on('connection', function (socket) {
 
         socket.on('register', function (data) {
+          FormsClass.join(FormsConf.signup, data, function (form) {
+
+            var that = form;
+
+            FormsClass.insert(model.users, that, function(insert) {
+
+              var user = insert;
+              account.createAccount(user, function(data) {
+                console.log('this is the data: %s', data);
+              });
+
+            });
+
+          });
           // FormsClass.formatForm(FormsConf.signup, data, function(form) {
           //   FormsClass.insertForm(model.users, form, function(resp) {
           //     account.createAccount(resp, function(data) {
-          //       request.reply.redirect('/').send();
+          //
           //     });
           //   });
           // });
-          console.log(data);
+          // console.log(data); 
+
+          //end of register event
         });
       });
 

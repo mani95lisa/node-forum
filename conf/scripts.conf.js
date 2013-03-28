@@ -1,8 +1,16 @@
 //scripts.conf.js
-
 /*
-@author: David Higginbotham
-@email: david@hillsoft.com
+  @author dhigginbotham <david@hillsoft.com>
+  
+  this method will handle a wordpress-like enqueue script
+  it's not dynamic like the form methods, because i don't think it needs
+  to be, but that could change...
+
+  -- current limitation: 
+  --  
+  --  i plan on including 'hapi.js' server routes to match the configs
+  --  so i can load scripts dynamically on { path: '/s/{path}' } type
+  --  matches. 
 */
  
 var scriptLoader = module.exports = {};
@@ -23,4 +31,3 @@ scriptLoader.files = [
   {path:'/js/helpers.client.js', name:'helpers.client.js', where:'foot', url: '/', type: 'js'},
  
 ];
-
