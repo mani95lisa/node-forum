@@ -1,15 +1,15 @@
-#Node.js Forum
+###Node.js Forum
 Node.js needed a fun forum app with some new flashy technology. So here's my go at making a forum that takes advantage of Node.js w/ Hapi.js, Socket.IO and uses Bootstrap for it's UI. I've got awhile to go, but if you're interested in contributing shoot me a pull request. Fundamentals, and coding practices you will see in this project will be a little mix of a couple different Styles, however I do tend to be fairly consistant and I will work on documenting this project much better.
 
-##Todos
+###Todos
 Well, there's a lot of them -- I am working on currently migrating a lot of my Express.js libraries to Hapi.js (hapi'er this way). With that I have a whole pile of work ahead of me.  
 
-- Implement OAuth, most likely will use Travelogue
-- Switch out to mongojs wrapper... probably?
-- Analytics w/ MySql
-- Slug generation
+- closure pattern on for loops to fix async scope
+- OAuth strategies with passport/travelogue
+- refactor yar & lout to closure pattern
+- test all for loops for incorrect field data
+- add joi validation to all inputs
 - Views: Create, Edit, View, Profile, Message, Photos/Media
-- Add 'middleware' to link the forums with topics
 
 ###License
 (The MIT License)

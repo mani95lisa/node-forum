@@ -15,19 +15,15 @@ var account = require('../lib/account.lib');
 
 var ScriptManager = require('../lib/scripts.lib');
 
-// exports.Forwarder = function (request, url) {
-//     request.reply.redirect(url).send();
-// }
-
 exports.HomePage = function (request) {
 
   ScriptManager.ManageScriptLoader(request, 'css', function(css) {
     ScriptManager.ManageScriptLoader(request, 'js', function(js) {
 
       request.reply.view('pages/index', {
-        title: 'Node Forum '
-      , embed: js
-      , style: css
+          title: 'Node Forum '
+        , embed: js
+        , style: css
       }).send();
 
     });
@@ -39,42 +35,32 @@ exports.LoginPage = function (request) {
   ScriptManager.ManageScriptLoader(request, 'css', function(css) {
     ScriptManager.ManageScriptLoader(request, 'js', function(js) {
 
-      FormsClass.render(FormsConf.signup, function(formOutput) {
+      FormsClass.render(require('../conf/forms.conf').forms.signup, function(formOutput) {
 
         request.reply.view('pages/login', {
-          title: 'Login / Signup Page '
-        , form: formOutput
-        , embed: js
-        , style: css
+            title: 'Login / Signup Page '
+          , form: formOutput
+          , embed: js
+          , style: css
         }).send();
-      });
 
+        io.sockets.on('connection', function (socket) {
+          socket.on('register', function (data) {
+            FormsClass.joiner(require('../conf/forms.conf').forms.signup, data, function (form) {
+              FormsClass.insert(require('../conf/models.conf').users, form, function(insert) {
+                account.createAccount(insert, function(result) {
 
-    });
+                  console.log(result);
 
-      io.sockets.on('connection', function (socket) {
-
-        socket.on('register', function (data) {
-
-          var cloned_form = Hoek.clone(FormsConf.signup);
-
-          FormsClass.joiner(cloned_form, data, function (form) {
-
-            var cloned_model = Hoek.clone(model.users);
-
-            FormsClass.insert(cloned_model, form, function(insert) {
-
-              account.createAccount(Hoek.clone(insert), function(cola) {
-                
-                // console.log(cola);
-
+                });
               });
-              
             });
           });
-          //end of register event
         });
+      //end of register event
       });
+    });
+
   });
 
 }
@@ -85,9 +71,9 @@ exports.ChatPage = function (request) {
     ScriptManager.ManageScriptLoader(request, 'js', function(js) {
 
       request.reply.view('pages/index', {
-        title: 'The Unofficial RWI Chat(beta) '
-        , embed: js
-        , style: css
+          title: 'The Unofficial RWI Chat(beta) '
+          , embed: js
+          , style: css
       }).send();
 
     });
